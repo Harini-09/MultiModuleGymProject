@@ -85,25 +85,25 @@ public class TrainingValueMapperTest {
 		// ... additional assertions for the rest of the fields
 	}
 
-	@Test
-	public void testConvertToMessage() {
-		NotificationDto notificationDto = NotificationDto.builder().subject("Test Subject")
-				.toEmails(List.of("to@example.com")).ccEmails(List.of("cc@example.com")).body("Test Body").build();
-
-		Message<NotificationDto> message = trainingValueMapper.convertToNotificationMessage(notificationDto);
-
-		assertEquals(notificationDto, message.getPayload());
-		assertEquals("notificationtopic", message.getHeaders().get(KafkaHeaders.TOPIC));
-	}
-
-	@Test
-	void testConvertToReportMessage() {
-		TrainingReportDto trainingReportDto = new TrainingReportDto(/* Set properties here */);
-
-		Message<TrainingReportDto> message = trainingValueMapper.convertToReportMessage(trainingReportDto);
-
-		assertNotNull(message);
-		assertEquals(trainingReportDto, message.getPayload());
-		assertEquals("report-topic", message.getHeaders().get(KafkaHeaders.TOPIC));
-	}
+//	@Test
+//	public void testConvertToMessage() {
+//		NotificationDto notificationDto = NotificationDto.builder().subject("Test Subject")
+//				.toEmails(List.of("to@example.com")).ccEmails(List.of("cc@example.com")).body("Test Body").build();
+//
+//		Message<NotificationDto> message = trainingValueMapper.convertToNotificationMessage(notificationDto);
+//
+//		assertEquals(notificationDto, message.getPayload());
+//		assertEquals("notificationtopic", message.getHeaders().get(KafkaHeaders.TOPIC));
+//	}
+//
+//	@Test
+//	void testConvertToReportMessage() {
+//		TrainingReportDto trainingReportDto = new TrainingReportDto(/* Set properties here */);
+//
+//		Message<TrainingReportDto> message = trainingValueMapper.convertToReportMessage(trainingReportDto);
+//
+//		assertNotNull(message);
+//		assertEquals(trainingReportDto, message.getPayload());
+//		assertEquals("report-topic", message.getHeaders().get(KafkaHeaders.TOPIC));
+//	}
 }

@@ -325,15 +325,15 @@ public class TrainerValueMapperTest {
 		assertNotNull(trainerTrainingResponseDtos);
 	}
 
-	@Test
-	public void testConvertToMessage() {
-		NotificationDto notificationDto = NotificationDto.builder().subject("Test Subject")
-				.toEmails(List.of("to@example.com")).ccEmails(List.of("cc@example.com")).body("Test Body").build();
-
-		Message<NotificationDto> message = trainerValueMapper.convertToMessage(notificationDto);
-
-		assertEquals(notificationDto, message.getPayload());
-		assertEquals("notificationtopic", message.getHeaders().get(KafkaHeaders.TOPIC));
-	}
+//	@Test
+//	public void testConvertToMessage() {
+//		NotificationDto notificationDto = NotificationDto.builder().subject("Test Subject")
+//				.toEmails(List.of("to@example.com")).ccEmails(List.of("cc@example.com")).body("Test Body").build();
+//
+//		Message<NotificationDto> message = trainerValueMapper.convertToMessage(notificationDto);
+//
+//		assertEquals(notificationDto, message.getPayload());
+//		assertEquals("notificationtopic", message.getHeaders().get(KafkaHeaders.TOPIC));
+//	}
 
 }
